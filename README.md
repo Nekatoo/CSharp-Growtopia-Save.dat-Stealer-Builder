@@ -1,4 +1,4 @@
-# CSharp-Growtopia-Save.dat-Stealer
+# CSharp-Growtopia-Save.dat-Stealer-Builder
 This is my old free save.dat stealer builder (L33TBuilder). Make sure to give credit to me ;D
 
 # Important notes:
